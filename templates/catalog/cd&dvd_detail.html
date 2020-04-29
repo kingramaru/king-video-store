@@ -1,0 +1,67 @@
+﻿&nbsp;<div class="container bg bg-white">
+
+    <div class="container-fliud">
+    <div class="wrapper row">
+    <div class="preview col-6">
+
+        <div class="preview-pic tab-content">
+            <div class="tab-pane active  my-auto mx-auto" id="pic-1"><img
+                    src="{{ book.pic.url }}" height="500" width="400"/>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="details col-6">
+        <h1>Title: {{ cd or dvd.title }}</h1>
+
+        <p><strong>Author:</strong>{{ cd or dvd.author }}</p>
+        <p><strong>Summary:</strong> {{cd or dvd.summary }}</p>
+        <p><strong>Language:</strong> {{ cd or dvd.language }}</p>
+        <p><strong>Genre:</strong>
+            </p>
+        <div style="margin-left:20px;margin-top:20px">
+            <h4>Copies</h4>
+            {% if user.is_superuser %}
+                <a class="btn btn-danger" href="{% url 'book_delete' pk=book.id %}">DELETE</a>
+                <a class="btn btn-success" href="{% url 'book_update' pk=book.id %}">Update</a>
+
+            {% endif %}
+            {% cd or dvd available_copies %}
+                <br>
+                no of avialable copies={{ cd or dvd.available_copies }}<br>
+                <a class="btn btn-primary" href="{% url 'request_issue' pk=book.id %}">Issue</a>&nbsp;      </div>
+
+    </div>
+
+    {% if rr %}
+        <a href="{% url 'rating_update' pk=rr.id %}">Give review about </a>cd or 
+		dvd
+    {% endif %}
+
+    <div class="card">
+
+        {% if reviews %}
+            {% for r in reviews %}
+
+                {% if r.review is  not "none" %}
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <img src="{{ r.student.pic.url }}" class="rounded-circle img-fluid"/>
+
+                            </div>
+                            <div class="col-md-10">
+                                <p>
+                                    <a class="float-left"
+                                       href="{% url 'student_detail' pk=r.student.id %} "><strong>{{ r.customer.name }}</strong></a>
+                                <div id="{{ r.id }}">
+
+                                </div>
+
+                                </p>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+    </div>

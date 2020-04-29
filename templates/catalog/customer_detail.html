@@ -1,0 +1,53 @@
+﻿&nbsp;<div class="container bg bg-white">
+
+    <div class="container-fliud">
+    <div class="wrapper row">
+        <div class="preview col-6">
+
+            <div class="preview-pic tab-content">
+                <div class="tab-pane active  my-auto mx-auto" id="pic-1"><img
+                        src="{{ student.pic.url }}" height="200" width="200"/>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="details col-6">
+            <h1>Name:<input name="Text1" type="text">
+			<form method="post">
+			</form>
+			</h1>
+
+            <p><strong>Id:<input name="Text2" type="text"></strong><form method="post">
+			</form>
+			</p>
+            <p><strong>Contact:</strong> </p>
+            <p><strong>Branch:</strong> </p>
+
+
+            &nbsp;<p>cd or dvd<strong> due:</strong> </p>
+                <a class="btn btn-danger" href="{% url 'student_delete' pk=student.id %}">DELETE</a>
+                <a class="btn btn-success" href="{% url 'student_update' pk=student.id %}">Update</a>&nbsp;
+
+
+        </div>
+        <hr>
+    </div>
+    <hr>
+    <hr>
+ 	    {<div class="row mx-auto">
+            &nbsp;<div class="mx-3 col-md-4 col-lg-3 mb-4 shadow p-2 mb-4 bg-white rounded">
+                    <div class="card mx-auto text-center ">
+                        <img class="card-img-top" src="{{ book.book.pic.url }}" alt="Sample Title" width="400px"
+                             height="400px">
+                        <div class="card-body">
+                            <h2 class="card-title"><a href="{{ book.book.get_absolute_url }}">{{ 
+							cd or dvd.cd or dvd }}</a>
+                                ({{ cd or dvd.cd or dvd.author }})</h2>
+                            <a class="btn btn-success" href="{% url 'ret' pk=book.id %}">Return</a>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <p>There are no cd or dvd borrowed.</p>
+    
